@@ -1,0 +1,42 @@
+ALGORITHM overlapping_elements
+VAR
+    set1,set2 : ARRAY_OF INTEGER[10];
+    i,j,n: INTEGER
+    found : BOOLEAN
+    somme:INTEGER
+BEGIN
+REPEAT
+write(donner la longuer du tableau);
+read(n);
+UNTIL (n>0) ;
+write("donner l'element du tab;"i)  ;
+read(set1[i]) ;
+write("donner l'element du tab ;"j);
+read(set2[j]);
+somme=0;
+FOR i FROM 0 TO set1.length-1 STEP 1  DO
+    found=false
+    FOR j FROM 0 TO set2.length-1 STEP 1  DO
+        if set1[i]==set2[j] 
+        found=true
+        somme=somme+set1[i]    
+        END_IF
+    END_FOR
+END_FOR
+FOR j FROM 0 TO set2.length-1 STEP 1  DO
+    found=false
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+        if set2[j]==set1[i] 
+        found=true
+        somme=somme+set1[i]    
+        END_IF
+    END_FOR
+END_FOR
+write (somme);
+
+
+
+
+
+
+END

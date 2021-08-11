@@ -1,0 +1,38 @@
+ALGORITHM overlapping_deux
+VAR
+    dict<INTEGER,INTEGER>
+    set1: ARRAY_OF INTEGER[n];
+    set2 : ARRAY_OF INTEGER[n];
+    count, i,somme :INTEGER
+BEGIN
+     FOR i FROM 0 TO set1.length -1 STEP 1  DO
+       IF (dict.lookup(set1[i]) = TRUE) THEN
+           count := dict.get(set1[i]);
+           dict.insert(set1[i],count+1);
+       ELSE
+           dict.insert(set1[i],1);
+       END_IF
+   END_FOR
+        FOR i FROM 0 TO set2.length -1 STEP 1  DO
+       IF (dict.lookup(set2[i]) = TRUE) THEN
+           count := dict.get(set2[i]);
+           dict.insert(set2[i],count+1);
+       ELSE
+           dict.insert(set2[i],1);
+       END_IF
+   END_FOR
+   somme:=0
+      FOR i FROM 0 TO set1.length -1 STEP 1  DO
+       IF (dict.get(set1[i]) = 2) THEN
+           somme := somme+set1[i];
+           BREAK;
+       END_IF
+   END_FOR
+   FOR i FROM 0 TO set2.length -1 STEP 1  DO
+       IF (dict.get(set2[i]) = 2) THEN
+           somme := somme+set2[i];
+           BREAK;
+       END_IF
+   END_FOR
+   write(somme);
+END
